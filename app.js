@@ -14,8 +14,8 @@ if (localStorage.getItem('updatedList')) {
 }
 
 
-    ul.addEventListener("click", function(e) {  
-    e.target.classList.toggle("done")
+    todoLi.addEventListener("click", function(e) {  
+        e.target.classList.toggle("done")
    if (e.target.classList.contains("done")) {
        localStorage.setItem('completed', true);
    } 
@@ -23,7 +23,7 @@ if (localStorage.getItem('updatedList')) {
        e.target.classList.remove("done");
        localStorage.removeItem('completed');
    }
-})
+    });
 
 function createListItem (text) {
     if (text) {
@@ -31,12 +31,12 @@ function createListItem (text) {
     newLi.innerText = text;
     newLi.setAttribute("id","todo");
     newLi.addEventListener("click", function(e) {  
-        e.target.classList.toggle("done")
-   if (e.target.classList.contains("done")) {
+        newLi.classList.toggle("done")
+   if (newLi.classList.contains("done")) {
        localStorage.setItem('completed', true);
    } 
    else {
-       e.target.classList.remove("done");
+       newLi.target.classList.remove("done");
        localStorage.removeItem('completed');
    }
     });
@@ -55,3 +55,4 @@ reset.addEventListener("click", function() {
     localStorage.clear();
     window.location.reload();
 })
+
